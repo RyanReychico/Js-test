@@ -33,4 +33,10 @@ describe('app', () => {
           }
         ]);
     });
+
+    it('should return an empty array when there is no result', () => {
+        const result = filter('abc')
+        const countResult = count(result)
+        expect(countResult).toEqual([]);
+    });
 });

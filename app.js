@@ -47,14 +47,13 @@ const count = (localData) => {
 
 // USAGE: node app.js --filter=[PATTERN] OR node app.js filter=[PATTERN]
 // USAGE: node app.js --count OR node app.js count
-
-
+// Executes the main logic
 
 const execute = () => {
     try {
         const isFilterActive = args.some(arg => arg.includes('filter'));
         const isCountActive = args.some(arg => arg.includes('count'));
-    
+
         if (isFilterActive && isCountActive) {
             const cmd = args.find(arg => arg.includes('filter')).split("=");
             const filteredData = filter(cmd[1]);
@@ -70,7 +69,7 @@ const execute = () => {
         } else {
             console.log('Wrong arguments');
         }
-    } catch(err) {
+    } catch (err) {
         console.error(err);
     }
 }
@@ -79,7 +78,6 @@ const execute = () => {
 if (require.main === module) {
     execute();
 }
-
 
 module.exports = {
     count, filter
